@@ -1,0 +1,48 @@
+{
+  "name": "squidy",
+  "version": "2.0.0",
+  "description": "Setup inteligente para projetos com Agentes de IA - Governança e Auditoria",
+  "main": "squidy/cli/app.py",
+  "bin": {
+    "squidy": "squidy/cli/app.py"
+  },
+  "scripts": {
+    "test": "pytest",
+    "lint": "black squidy/ tests/ && isort squidy/ tests/ && mypy squidy/ && pylint squidy/",
+    "format": "black squidy/ tests/ && isort squidy/ tests/",
+    "typecheck": "mypy squidy/",
+    "install": "pip install -e .",
+    "install-dev": "pip install -e '.[dev]'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seomarc/squidy.git"
+  },
+  "keywords": [
+    "ai",
+    "claude",
+    "gpt",
+    "cursor",
+    "agent",
+    "setup",
+    "governance",
+    "audit",
+    "documentation",
+    "project-management",
+    "cli",
+    "python",
+    "openai",
+    "anthropic"
+  ],
+  "author": "Marcos Tadeu <contato@squidy.run>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seomarc/squidy/issues"
+  },
+  "homepage": "https://squidy.run",
+  "engines": {
+    "python": ">=3.9"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
