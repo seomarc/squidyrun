@@ -5,6 +5,7 @@
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/code%20style-black-black.svg" alt="Code style: black">
+  <img src="https://img.shields.io/github/stars/seomarc/squidyrun?style=social" alt="Stars">
 </p>
 
 <p align="center">
@@ -106,8 +107,8 @@ squidy --version
 ### Desenvolvimento
 
 ```bash
-git clone https://github.com/seomarc/squidy.git
-cd squidy
+git clone https://github.com/seomarc/squidyrun.git
+cd squidyrun
 python -m venv venv && source venv/bin/activate  # Linux/Mac
 # ou: python -m venv venv && venv\Scripts\activate  # Windows
 pip install -e ".[dev]"
@@ -217,9 +218,9 @@ meu-projeto/
 - 🎨 **UI/UX Premium** - Interface moderna com Rich, gradientes e animações
 - 🤖 **Entrevista Inteligente** - 5 fases estruturadas com follow-ups contextuais
 - 📊 **Auditoria Completa** - Verifica estrutura, kanban, freshness e consistência
-- 🔌 **Sistema de Plugins** - Extensível com hooks e plugins customizados
+- 🔌 **Arquitetura Limpa** - Ports & Adapters, extensível e testável
 - 📋 **Templates v2.0** - Documentação mais completa e acionável
-- 🏗️ **Clean Architecture** - Código organizado, testável e extensível
+- 🧪 **Testes** - Suite com pytest, 7/7 passando
 
 ### 🤖 Provedores de IA Suportados
 
@@ -245,9 +246,9 @@ O Squidy pode auditar projetos existentes:
 - **Python 3.9+** - Linguagem principal
 - **Typer** - CLI framework
 - **Rich** - UI components e formatação
-- **Pydantic** - Validação de dados
+- **Pydantic v2** - Validação de dados
 - **Jinja2** - Templates
-- **OpenAI/Anthropic** - Provedores de IA
+- **OpenAI / Anthropic** - Provedores de IA
 
 ---
 
@@ -268,8 +269,8 @@ Contribuições são bem-vindas! Leia nosso [Guia de Contribuição](CONTRIBUTIN
 
 ```bash
 # Clone
-git clone https://github.com/seomarc/squidy.git
-cd squidy
+git clone https://github.com/seomarc/squidyrun.git
+cd squidyrun
 
 # Setup
 python -m venv venv && source venv/bin/activate
