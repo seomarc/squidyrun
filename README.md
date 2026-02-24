@@ -228,7 +228,6 @@ meu-projeto/
 |----------|---------|-------|
 | **OpenAI** | GPT-4o-mini | Pago |
 | **Anthropic** | Claude 3 Haiku/Sonnet | Pago |
-| **OpenRouter** | Gemma (free), Claude Haiku | Grátis/Pago |
 
 ### 🔍 Auditoria
 

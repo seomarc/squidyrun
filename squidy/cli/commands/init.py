@@ -15,7 +15,6 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 
 from squidy.adapters.providers.openai_adapter import OpenAIAdapter
 from squidy.adapters.providers.anthropic_adapter import AnthropicAdapter
-from squidy.adapters.providers.openrouter_adapter import OpenRouterAdapter
 from squidy.core.domain.config import ProjectConfig
 from squidy.core.ports.ai_provider import AIProviderPort
 from squidy.core.ports.filesystem import FileSystemPort
@@ -180,8 +179,6 @@ class InitCommand:
             provider = OpenAIAdapter(api_key)
         elif provider_name.lower() == "anthropic":
             provider = AnthropicAdapter(api_key)
-        elif provider_name.lower() == "openrouter":
-            provider = OpenRouterAdapter(api_key)
         else:
             self.console.print(f"[red]❌ Provider desconhecido: {provider_name}[/red]")
             return None
