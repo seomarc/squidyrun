@@ -35,6 +35,12 @@ app = typer.Typer(
 SQUIDY_VERSION = "2.0.0"
 
 
+def _version_callback(value: bool) -> None:
+    if value:
+        typer.echo(f"squidy {SQUIDY_VERSION}")
+        raise typer.Exit()
+
+
 def show_banner():
     """Mostra banner premium do Squidy"""
     theme = SquidyTheme()
@@ -92,9 +98,17 @@ def show_banner():
 
 
 @app.callback()
-def callback():
+def callback(
+    version: bool = typer.Option(
+        None,
+        "--version",
+        "-V",
+        callback=_version_callback,
+        is_eager=True,
+        help="Mostra a versão do Squidy e sai",
+    ),
+) -> None:
     """Squidy - Setup inteligente para projetos com Agentes de IA"""
-    pass
 
 
 @app.command(name="init")
