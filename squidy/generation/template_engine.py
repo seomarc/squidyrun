@@ -136,11 +136,42 @@ Leia NA ORDEM:
 4. `doc/kanban.md` - Tarefas disponíveis
 5. `doc/contexto-sessao.md` - Estado atual
 
-### 3️⃣ Registrar no Diário
+### 3️⃣ Preencher o Kanban Inicial
+> ⚠️ **Faça isso apenas se o `doc/kanban.md` ainda contiver placeholders (ex: `[Nome do Épico]`).**
+
+Com base na `doc/constituicao.md` que você acabou de ler, popule o `doc/kanban.md` com as tarefas reais do projeto:
+
+**a) Identifique os Épicos**
+Quebre o propósito do projeto em 3-6 grandes funcionalidades. Cada uma vira um ÉPICO.
+```
+ÉPICO-001: [Funcionalidade central 1]
+ÉPICO-002: [Funcionalidade central 2]
+...
+```
+
+**b) Crie as Tasks do Backlog**
+Para cada Épico, crie 2-5 tasks concretas e acionáveis:
+```
+TASK-001: [Ação específica] [ÉPICO-001]  → Complexidade M, Prioridade P0
+TASK-002: [Ação específica] [ÉPICO-001]  → Complexidade S, Prioridade P1
+...
+```
+
+**c) Regras ao preencher**
+- Use verbos no infinitivo: "Implementar", "Criar", "Configurar", "Integrar"
+- Mantenha tasks com escopo de 1-8h (use XL apenas se inevitável)
+- Defina critérios de aceitação claros e verificáveis
+- Priorize as tasks de infraestrutura/setup como P0
+
+**d) Atualize o Próximo ID**
+Após criar todas as tasks, atualize o campo `**Próximo ID:**` no topo do kanban.
+
+### 4️⃣ Registrar no Diário
 Crie entrada em `diario/{{ month }}.md`:
 ```markdown
 ### [{{ now.strftime("%H:%M") }}] BOOT - Agente iniciado
 **Contexto:** [Resumo do contexto-sessao.md]
+**Kanban:** [Quantos épicos/tasks foram criados ou já existiam]
 **Tarefa alvo:** TASK-XXX
 **Estado encontrado:** [O que está em progresso/bloqueado]
 ```
@@ -355,8 +386,27 @@ tipo(escopo): descrição curta
         """Template kanban.md v2.0"""
         return '''# KANBAN - {{ display_name }}
 
-**Gerado em:** {{ timestamp }}  
+**Gerado em:** {{ timestamp }}
 **Próximo ID:** TASK-001
+
+---
+
+> ## 🤖 INSTRUÇÃO PARA O AGENTE — SETUP INICIAL
+>
+> **Este arquivo foi gerado com placeholders.** Na primeira sessão do projeto, você deve substituí-los por tarefas reais antes de qualquer desenvolvimento.
+>
+> ### Como preencher:
+> 1. **Leia `doc/constituicao.md`** para entender o propósito e escopo do projeto
+> 2. **Identifique 3-6 Épicos** — grandes funcionalidades que compõem o produto
+> 3. **Para cada Épico, crie 2-5 Tasks** no BACKLOG com:
+>    - Nome em verbo no infinitivo (`Implementar`, `Configurar`, `Criar`...)
+>    - Complexidade realista (XS/S/M/L — evite XL)
+>    - Critérios de aceitação verificáveis
+>    - Prioridade (P0 = bloqueia release, P1 = importante, P2 = desejável)
+> 4. **Remova os placeholders** (`[Nome do Épico]`, `[Nome da Task]`, etc.)
+> 5. **Atualize o campo `Próximo ID`** no cabeçalho deste arquivo
+>
+> ⚠️ **Não comece a desenvolver antes de preencher o kanban.**
 
 ---
 
