@@ -2,7 +2,7 @@
 AI Provider Port - Interface abstrata para provedores de IA
 
 Esta interface permite trocar facilmente entre diferentes
-provedores (OpenAI, Anthropic, OpenRouter, etc).
+provedores (OpenAI, Anthropic, etc).
 """
 
 from abc import ABC, abstractmethod
@@ -16,7 +16,6 @@ class AIProviderPort(ABC):
     Implementações:
         - OpenAIAdapter: OpenAI API (GPT-4, GPT-3.5)
         - AnthropicAdapter: Anthropic API (Claude)
-        - OpenRouterAdapter: OpenRouter (multi-model)
     """
     
     name: str = "BaseProvider"

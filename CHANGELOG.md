@@ -53,7 +53,7 @@ Squidy v2.0 - Refatoração completa com arquitetura profissional, auditoria e U
 ### 🔧 Melhorias Técnicas
 
 - **CLI**: Migrado para Typer com comandos organizados
-- **Providers**: Adapters para OpenAI, Anthropic e OpenRouter
+- **Providers**: Adapters para OpenAI e Anthropic
 - **Filesystem**: Port abstrato para facilitar testes
 - **Config**: Validação com Pydantic
 - **Templates**: Engine Jinja2 com filtros customizados
@@ -69,7 +69,7 @@ squidy/
 │   └── use_cases/    # Casos de uso
 ├── adapters/         # Implementações
 │   ├── filesystem/   # LocalFileSystem, MockFileSystem
-│   └── providers/    # OpenAI, Anthropic, OpenRouter adapters
+│   └── providers/    # OpenAI, Anthropic adapters
 ├── audit/            # Sistema de auditoria
 │   ├── checkers/     # Structure, Kanban, Freshness, Consistency
 │   ├── detectors/    # Manifest, Heuristic
@@ -155,7 +155,7 @@ Esta é uma versão major (2.0.0) com mudanças incompatíveis:
 ### 🎉 Lançamento Inicial
 
 - Setup com Agente IA via entrevista adaptativa (5-6 perguntas)
-- Suporte a 3 provedores: OpenAI, Anthropic, OpenRouter
+- Suporte a 2 provedores: OpenAI, Anthropic
 - Geração automática de 9 arquivos de documentação
 - Setup manual/offline sem necessidade de API key
 - Gerenciamento seguro de credenciais (getpass + limpeza de memória)

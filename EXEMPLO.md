@@ -292,9 +292,6 @@ squidy audit -c structure,kanban
 ```bash
 # Usar Anthropic (Claude)
 squidy init --provider anthropic
-
-# Usar OpenRouter (modelos gratuitos)
-squidy init --provider openrouter
 ```
 
 ---

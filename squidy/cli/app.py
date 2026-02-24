@@ -75,7 +75,7 @@ def show_banner():
     desc_content.append("Receba 10 arquivos de documentação prontos\n", style="white")
     desc_content.append("  ✦ ", style="bright_cyan")
     desc_content.append("Kanban · Constituição · ADRs · Diário\n\n", style="white")
-    desc_content.append("  OpenAI  ·  Anthropic  ·  OpenRouter", style="dim")
+    desc_content.append("  OpenAI  ·  Anthropic", style="dim")
     
     desc_panel = Panel(
         desc_content,
@@ -122,7 +122,7 @@ def init_command(
     provider: str = typer.Option(
         "openai",
         "--provider",
-        help="Provedor de IA (openai, anthropic, openrouter)",
+        help="Provedor de IA (openai, anthropic)",
     ),
 ):
     """
