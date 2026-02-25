@@ -17,7 +17,7 @@ Example:
     >>> project.initialize()
 """
 
-__version__ = "2.0.0"
+__version__ = "2.1.0"
 __author__ = "Marcos Tadeu"
 __email__ = "contato@squidy.run"
 __license__ = "MIT"

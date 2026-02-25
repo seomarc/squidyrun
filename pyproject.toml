@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "squidy"
-version = "2.0.1"
+version = "2.1.0"
 description = "Setup inteligente para projetos com Agentes de IA - Governança e Auditoria"
 readme = "README.md"
 license = "MIT"
