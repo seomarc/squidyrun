@@ -1,0 +1,181 @@
+# 🇧🇷 Mensagens da CLI em Português (Brasil)
+# Suporte a placeholders: {name}, {path}, {count}, etc.
+
+# Banner e Boas-vindas
+banner:
+  title: "Squidy"
+  subtitle: "squidy.run"
+  description: "Setup inteligente para projetos de software"
+  feature_1: "Converse com IA sobre seu projeto"
+  feature_2: "Receba 10 arquivos de documentação prontos"
+  feature_3: "Kanban · Constituição · ADRs · Diário"
+  providers: "OpenAI · Anthropic"
+
+# Mensagens de boas-vindas
+welcome:
+  message: "Bem-vindo ao Squidy!"
+  greeting: "Olá! Pronto para configurar seu projeto?"
+
+# Seleção de idioma
+language:
+  select_title: "🌍 Selecione o idioma"
+  current: "Idioma atual"
+  selected: "✓ Idioma selecionado"
+  option_br: "🇧🇷 Português (Brasil)"
+  option_us: "🇺🇸 English (US)"
+  prompt: "Escolha uma opção"
+  invalid: "❌ Opção inválida. Tente novamente."
+
+# Comando init
+init:
+  title: "🤖 Setup com IA"
+  title_manual: "📝 Setup Manual"
+  description: |
+    Como funciona:
+      1. Me conte sobre o projeto (uma frase é suficiente)
+      2. Farei até 6 perguntas contextuais
+      3. Gero automaticamente 10 arquivos de documentação
+  
+  # Prompts de entrada
+  project_name: "Nome do projeto (kebab-case)"
+  project_name_default: "meu-projeto"
+  display_name: "Nome apresentável"
+  purpose: "Propósito do projeto (1-2 frases)"
+  
+  # Stack
+  stack_title: "Stack Tecnológica"
+  frontend: "Frontend"
+  frontend_choices: ["React", "Vue", "Angular", "Svelte", "None", "Outro"]
+  frontend_default: "React"
+  backend: "Backend"
+  backend_default: "Node.js/Express"
+  database: "Banco de dados"
+  database_choices: ["PostgreSQL", "MySQL", "MongoDB", "SQLite", "Outro"]
+  database_default: "PostgreSQL"
+  database_other: "Especifique o banco"
+  frontend_other: "Especifique o frontend"
+  
+  # Tipo de agente
+  agent_type: "Tipo de agente"
+  agent_choices:
+    - "desenvolvedor-fullstack"
+    - "desenvolvedor-backend"
+    - "desenvolvedor-frontend"
+    - "devops"
+  agent_default: "desenvolvedor-fullstack"
+  
+  # API Keys
+  api_key_prompt: "🔐 Digite a API key para {provider}"
+  api_key_hint: "(a chave não aparece enquanto digita)"
+  api_key_invalid: "❌ API key inválida"
+  
+  # Conexão
+  connection_testing: "Verificando conexão..."
+  connection_success: "✓ Conectado ao {provider}"
+  connection_error: "❌ Não foi possível conectar ao {provider}"
+  connection_hint: "Verifique sua API key e conexão com a internet"
+  
+  # Entrevista
+  interview_title: "Entrevista com Agente IA"
+  interview_description: "Vou fazer algumas perguntas sobre seu projeto. Responda naturalmente, como em uma conversa."
+  interview_agent_greeting: "Olá! Me conte sobre o projeto que você quer configurar."
+  interview_example: "Exemplo: 'API REST para delivery com Node e PostgreSQL'"
+  interview_you: "Você"
+  interview_thinking: "Pensando..."
+  interview_agent: "🤖 Agente"
+  interview_context_ready: "✓ Contexto suficiente coletado ({count} pergunta(s))"
+  interview_generating: "Gerando configuração..."
+  interview_processing: "Processando com IA..."
+  
+  # Validações
+  description_short: "⚠️ Descrição muito curta. Tente novamente."
+  answer_short: "⚠️ Resposta muito curta"
+  
+  # Resultado
+  success: "✅ Setup concluído!"
+  files_generated: "Arquivos gerados em"
+  next_steps: "Próximos passos"
+  next_step_1: 'Diga ao seu agente: "Acesse {path}/readme-agent.md e siga o ritual"'
+  next_step_2: "Revise {path}/doc/constituicao.md"
+  next_step_3: "Adicione tarefas em {path}/doc/kanban.md"
+  
+  # Dry run
+  dry_run_title: "🔍 PREVIEW (Dry Run)"
+  dry_run_directory: "Diretório"
+  dry_run_project: "Projeto"
+  dry_run_stack: "Stack"
+  dry_run_files: "Arquivos que seriam criados"
+  dry_run_run_without: "Execute sem --dry-run para criar os arquivos"
+  
+  # Warnings
+  already_exists: "⚠️ Já existe um projeto Squidy em {path}"
+  overwrite_confirm: "Deseja sobrescrever?"
+  operation_cancelled: "Operação cancelada"
+  creating_directory: "Criando diretório"
+  only_missing_warning: "⚠️ Modo --only-missing ainda não implementado"
+
+# Comando audit
+audit:
+  title: "🔍 Auditando"
+  summary_title: "Resumo da Auditoria"
+  severity_critical: "🔴 Crítico"
+  severity_high: "🟠 Alto"
+  severity_medium: "🟡 Médio"
+  severity_low: "🟢 Baixo"
+  severity_info: "🔵 Info"
+  total: "Total"
+  
+  findings_title: "Problemas Encontrados"
+  no_issues: "✅ Nenhum problema encontrado!"
+  
+  file: "Arquivo"
+  suggestion: "Sugestão"
+  auto_fixable: "[auto-fixable]"
+  
+  checkers_run: "Checkers executados"
+  duration: "Duração"
+  
+  not_squidy_project: "⚠️ Não parece ser um projeto Squidy"
+  run_init_first: "Execute 'squidy init' primeiro"
+  
+  # Auto-fix
+  fix_title: "Correções aplicadas"
+  fix_manual: "Problemas que precisam de atenção manual"
+
+# Comando status
+status:
+  title: "📊 Status do Projeto"
+  structure_ok: "✅ Estrutura completa"
+  files_ok: "Arquivos OK"
+  path: "Caminho"
+  file: "Arquivo"
+  status: "Status"
+  status_ok: "✓"
+  status_missing: "✗"
+
+# Comando doctor
+doctor:
+  title: "🩺 Squidy Doctor"
+  running: "Executando diagnóstico completo..."
+
+# Erros gerais
+errors:
+  generic: "❌ Erro: {error}"
+  keyboard_interrupt: "🦑 Até logo!"
+  file_not_found: "Arquivo não encontrado: {path}"
+  permission_denied: "Permissão negada: {path}"
+  invalid_option: "Opção inválida"
+  required_field: "Campo obrigatório"
+
+# Progresso
+progress:
+  generating_files: "🦑 Gerando arquivos Squidy..."
+
+# Misc
+misc:
+  yes: "Sim"
+  no: "Não"
+  cancel: "Cancelar"
+  continue: "Continuar"
+  back: "Voltar"
+  exit: "Sair"

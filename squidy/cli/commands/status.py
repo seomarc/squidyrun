@@ -10,6 +10,7 @@ from rich.panel import Panel
 from rich.table import Table
 from rich import box
 
+from squidy.core.i18n import i18n
 from squidy.core.ports.filesystem import FileSystemPort
 
 
@@ -23,7 +24,7 @@ class StatusCommand:
     def execute(self, path: Path) -> None:
         """Executa comando status"""
         
-        self.console.print(f"\n[bold cyan]📊 Status do Projeto[/bold cyan]\n")
+        self.console.print(f"\n[bold cyan]📊 {i18n.t('status.title')}[/bold cyan]\n")
         
         # Verifica estrutura
         checks = self._check_structure(path)
@@ -55,15 +56,15 @@ class StatusCommand:
         ok = sum(checks.values())
         
         if ok == total:
-            status = "[bold green]✅ Estrutura completa[/bold green]"
+            status = f"[bold green]{i18n.t('status.structure_ok')}[/bold green]"
         elif ok >= total * 0.7:
-            status = "[bold yellow]⚠️  Estrutura parcial[/bold yellow]"
+            status = f"[bold yellow]⚠️  {i18n.t('status.structure_ok')}[/bold yellow]"
         else:
-            status = "[bold red]❌ Estrutura incompleta[/bold red]"
+            status = f"[bold red]❌ {i18n.t('status.structure_ok')}[/bold red]"
         
         content.append(f"{status}\n\n")
-        content.append(f"[dim]Caminho:[/dim] [cyan]{path}[/cyan]\n")
-        content.append(f"[dim]Arquivos OK:[/dim] {ok}/{total}\n")
+        content.append(f"[dim]{i18n.t('status.path')}:[/dim] [cyan]{path}[/cyan]\n")
+        content.append(f"[dim]{i18n.t('status.files_ok')}:[/dim] {ok}/{total}\n")
         
         panel = Panel(
             content,
@@ -76,8 +77,8 @@ class StatusCommand:
         
         # Tabela de arquivos
         table = Table(box=box.ROUNDED)
-        table.add_column("Arquivo", style="cyan")
-        table.add_column("Status")
+        table.add_column(i18n.t('status.file'), style="cyan")
+        table.add_column(i18n.t('status.status'))
         
         files = [
             ("readme-agent.md", checks["readme"]),
@@ -90,7 +91,7 @@ class StatusCommand:
         ]
         
         for file, exists in files:
-            status = "[green]✓[/green]" if exists else "[red]✗[/red]"
+            status = f"[green]{i18n.t('status.status_ok')}[/green]" if exists else f"[red]{i18n.t('status.status_missing')}[/red]"
             table.add_row(file, status)
         
         self.console.print()
@@ -98,6 +99,6 @@ class StatusCommand:
         
         # Dicas
         if ok < total:
-            self.console.print("\n[dim]💡 Execute 'squidy init --only-missing' para criar arquivos faltantes[/dim]")
+            self.console.print(f"\n[dim]💡 {i18n.t('init.dry_run_run_without')}.[/dim]")
         
         self.console.print()

@@ -36,6 +36,7 @@ class AIProviderPort(ABC):
         project_description: str,
         qa_history: list[tuple[str, str]],
         question_count: int,
+        language: str = "pt-BR",
     ) -> str:
         """
         Gera próxima pergunta da entrevista
@@ -44,6 +45,7 @@ class AIProviderPort(ABC):
             project_description: Descrição inicial do projeto
             qa_history: Histórico de Q&A [(pergunta, resposta), ...]
             question_count: Número da pergunta atual
+            language: Idioma da entrevista (pt-BR, en-US)
             
         Returns:
             Próxima pergunta ou "READY" se suficiente
@@ -51,12 +53,13 @@ class AIProviderPort(ABC):
         pass
     
     @abstractmethod
-    def generate_config(self, full_context: str) -> dict[str, Any]:
+    def generate_config(self, full_context: str, language: str = "pt-BR") -> dict[str, Any]:
         """
         Gera configuração Squidy a partir do contexto da entrevista
         
         Args:
             full_context: Contexto completo (descrição + Q&A)
+            language: Idioma da configuração (pt-BR, en-US)
             
         Returns:
             Dicionário com configuração do projeto
@@ -64,13 +67,14 @@ class AIProviderPort(ABC):
         pass
     
     @abstractmethod
-    def refine_task(self, task_description: str, project_context: dict) -> dict:
+    def refine_task(self, task_description: str, project_context: dict, language: str = "pt-BR") -> dict:
         """
         Refina uma tarefa vaga em subtarefas específicas
         
         Args:
             task_description: Descrição da tarefa
             project_context: Contexto do projeto
+            language: Idioma da resposta (pt-BR, en-US)
             
         Returns:
             Dicionário com subtarefas e critérios
@@ -78,12 +82,13 @@ class AIProviderPort(ABC):
         pass
     
     @abstractmethod
-    def analyze_project(self, project_files: dict[str, str]) -> dict:
+    def analyze_project(self, project_files: dict[str, str], language: str = "pt-BR") -> dict:
         """
         Analisa arquivos do projeto e sugere melhorias
         
         Args:
             project_files: Dict {caminho: conteúdo}
+            language: Idioma da análise (pt-BR, en-US)
             
         Returns:
             Análise e sugestões

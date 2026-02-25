@@ -1,0 +1,137 @@
+# 🇧🇷 Traduções de Templates em Português (Brasil)
+# Usado para gerar os arquivos de documentação
+
+# Nomes de seções nos templates
+doc_sections:
+  constitution: "CONSTITUIÇÃO"
+  oracle: "ORÁCULO"
+  kanban: "KANBAN"
+  policies: "POLÍTICAS"
+  emergency: "EMERGÊNCIA"
+  diary_index: "ÍNDICE DO DIÁRIO"
+  session_context: "CONTEXTO DE SESSÃO"
+  agent: "AGENT"
+  diary: "DIÁRIO"
+
+# Seções do Kanban
+kanban_sections:
+  epics: "ÉPICOS"
+  backlog: "BACKLOG"
+  in_progress: "EM PROGRESSO"
+  done: "CONCLUÍDO"
+  blocked: "BLOQUEADO"
+  metrics: "MÉTRICAS"
+
+# Complexidades
+complexity:
+  xs: "XS"
+  s: "S"
+  m: "M"
+  l: "L"
+  xl: "XL"
+  xs_desc: "< 1h"
+  s_desc: "1-2h"
+  m_desc: "2-4h"
+  l_desc: "4-8h"
+  xl_desc: "> 8h"
+
+# Prioridades
+priority:
+  p0: "P0"
+  p1: "P1"
+  p2: "P2"
+  p3: "P3"
+  p0_desc: "Crítico (bloqueia release)"
+  p1_desc: "Alto (importante)"
+  p2_desc: "Médio (desejável)"
+  p3_desc: "Baixo (nice to have)"
+
+# Status
+doc_status:
+  active: "Ativo"
+  accepted: "Aceito"
+  done: "Concluído"
+  blocked: "Bloqueado"
+  pending: "Pendente"
+
+# Convenções de nomenclatura
+conventions:
+  camelCase: "camelCase"
+  PascalCase: "PascalCase"
+  snake_case: "snake_case"
+  UPPER_SNAKE: "UPPER_SNAKE"
+  kebab_case: "kebab-case"
+
+# Termos comuns
+terms:
+  project: "Projeto"
+  purpose: "Propósito"
+  stack: "Stack Tecnológica"
+  frontend: "Frontend"
+  backend: "Backend"
+  database: "Banco de Dados"
+  architecture: "Arquitetura"
+  principles: "Princípios"
+  prohibitions: "Proibições"
+  conventions: "Convenções"
+  definition_of_done: "Definition of Done"
+  restrictions: "Restrições"
+  quality: "Qualidade"
+  generated_at: "Gerado em"
+  updated_at: "Última atualização"
+  version: "Versão"
+  type: "Tipo"
+  agent: "Agente"
+  task: "Tarefa"
+  epic: "Épico"
+  subtask: "Subtarefa"
+  description: "Descrição"
+  priority: "Prioridade"
+  complexity: "Complexidade"
+  acceptance_criteria: "Critérios de Aceitação"
+  notes: "Notas"
+  next_id: "Próximo ID"
+  wip: "WIP"
+  wip_limit: "limite"
+
+# Rituais e instruções
+rituals:
+  initialization_title: "Ritual de Inicialização"
+  must_read: "Antes de qualquer ação, você DEVE"
+  step_1: "Confirmar Inicialização"
+  step_2: "Executar Leitura Obrigatória"
+  step_3: "Preencher o Kanban Inicial"
+  step_4: "Registrar no Diário"
+  read_in_order: "Leia NA ORDEM"
+
+# Regras
+doc_rules:
+  golden_rules: "Regras de Ouro"
+  never: "NUNCA"
+  always: "SEMPRE"
+  rule_1: "programe antes de ler a Constituição"
+  rule_2: "ignore emergencia.md"
+  rule_3: "vincule a TASK-ID"
+  rule_4: "atualize contexto-sessao.md"
+  rule_5: "registre no diário"
+
+# Emergência
+emergency:
+  active_blocks: "Bloqueios Ativos"
+  no_blocks: "Nenhum bloqueio registrado no momento"
+  block_template: "Template de Registro de Bloqueio"
+  severity: "Severidade"
+  critical: "Crítico"
+  important: "Importante"
+  low: "Baixa"
+  impact: "Impacto"
+  resolution: "Resolução"
+  resolved: "Bloqueios Resolvidos"
+
+# Navegação
+navigation:
+  quick_guide: "Guia Rápido"
+  hierarchy: "Hierarquia"
+  flow: "Fluxo de Trabalho"
+  quick_ref: "Referências Rápidas"
+  next_action: "Próxima Ação Esperada"

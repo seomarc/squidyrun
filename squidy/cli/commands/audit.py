@@ -19,6 +19,7 @@ from squidy.audit.detectors.heuristic_detector import HeuristicDetector
 from squidy.audit.detectors.manifest_detector import ManifestDetector
 from squidy.audit.engine import AuditEngine
 from squidy.core.domain.audit_result import Severity
+from squidy.core.i18n import i18n
 from squidy.core.ports.filesystem import FileSystemPort
 
 
@@ -42,8 +43,8 @@ class AuditCommand:
         is_squidy, confidence = self._detect_project(path)
         
         if not is_squidy:
-            self.console.print(f"\n[yellow]⚠️  Não parece ser um projeto Squidy: {path}[/yellow]")
-            self.console.print("[dim]Execute 'squidy init' primeiro.[/dim]\n")
+            self.console.print(f"\n[yellow]⚠️  {i18n.t('audit.not_squidy_project')}: {path}[/yellow]")
+            self.console.print(f"[dim]{i18n.t('audit.run_init_first')}.[/dim]\n")
             return
         
         # Configura engine de auditoria
@@ -56,7 +57,7 @@ class AuditCommand:
         engine.register_checker(ConsistencyChecker)
         
         # Executa auditoria
-        self.console.print(f"\n[bold cyan]🔍 Auditando:[/bold cyan] {path}\n")
+        self.console.print(f"\n[bold cyan]🔍 {i18n.t('audit.title')}:[/bold cyan] {path}\n")
         
         result = engine.audit(
             path=path,
@@ -93,43 +94,43 @@ class AuditCommand:
         
         # Tabela de severidade
         table = Table(box=box.ROUNDED)
-        table.add_column("Severidade", style="bold")
-        table.add_column("Quantidade", justify="right")
+        table.add_column(i18n.t('audit.summary_title'), style="bold")
+        table.add_column(i18n.t('audit.total'), justify="right")
         
         severities = [
-            ("🔴 Crítico", summary["critical"], "red"),
-            ("🟠 Alto", summary["high"], "orange3"),
-            ("🟡 Médio", summary["medium"], "yellow"),
-            ("🟢 Baixo", summary["low"], "green"),
-            ("🔵 Info", summary["info"], "blue"),
+            (i18n.t('audit.severity_critical'), summary["critical"], "red"),
+            (i18n.t('audit.severity_high'), summary["high"], "orange3"),
+            (i18n.t('audit.severity_medium'), summary["medium"], "yellow"),
+            (i18n.t('audit.severity_low'), summary["low"], "green"),
+            (i18n.t('audit.severity_info'), summary["info"], "blue"),
         ]
         
         for label, count, color in severities:
             if count > 0:
                 table.add_row(f"[{color}]{label}[/{color}]", str(count))
         
-        table.add_row("[bold]Total[/bold]", str(summary["total"]), style="bold")
+        table.add_row(f"[bold]{i18n.t('audit.total')}[/bold]", str(summary["total"]), style="bold")
         
         self.console.print(table)
         self.console.print()
         
         # Lista de findings
         if result.findings:
-            self.console.print("[bold]Problemas Encontrados:[/bold]\n")
+            self.console.print(f"[bold]{i18n.t('audit.findings_title')}:[/bold]\n")
             
             for finding in result.findings:
                 self._print_finding(finding)
             
             # Auto-fix
             if fix and result.auto_fixable_count > 0:
-                self.console.print(f"\n[yellow]⚠️  {result.auto_fixable_count} problema(s) podem ser corrigidos automaticamente[/yellow]")
-                self.console.print("[dim]Execute 'squidy audit --fix' para aplicar correções.[/dim]")
+                self.console.print(f"\n[yellow]⚠️  {result.auto_fixable_count} {i18n.t('audit.fix_manual')}[/yellow]")
+                self.console.print(f"[dim]{i18n.t('audit.suggestion')}.[/dim]")
         else:
-            self.console.print("[bold green]✅ Nenhum problema encontrado![/bold green]\n")
+            self.console.print(f"[bold green]{i18n.t('audit.no_issues')}[/bold green]\n")
         
         # Checkers executados
-        self.console.print(f"[dim]Checkers executados: {', '.join(result.checkers_run)}[/dim]")
-        self.console.print(f"[dim]Duração: {result.duration_ms}ms[/dim]\n")
+        self.console.print(f"[dim]{i18n.t('audit.checkers_run')}: {', '.join(result.checkers_run)}[/dim]")
+        self.console.print(f"[dim]{i18n.t('audit.duration')}: {result.duration_ms}ms[/dim]\n")
     
     def _print_finding(self, finding) -> None:
         """Printa um finding formatado"""
@@ -146,15 +147,15 @@ class AuditCommand:
         content.append(f"{finding.message}\n\n", style="white")
         
         if finding.file:
-            content.append(f"Arquivo: ", style="dim")
+            content.append(f"{i18n.t('audit.file')}: ", style="dim")
             content.append(f"{finding.file}\n", style="cyan")
         
         if finding.suggestion:
-            content.append(f"Sugestão: ", style="dim")
+            content.append(f"{i18n.t('audit.suggestion')}: ", style="dim")
             content.append(finding.suggestion, style="green")
         
         if finding.auto_fixable:
-            content.append(f"\n[auto-fixable]", style="yellow")
+            content.append(f"\n[{i18n.t('audit.auto_fixable')}]", style="yellow")
         
         panel = Panel(
             content,

@@ -19,6 +19,8 @@ from squidy.cli.commands.init import InitCommand
 from squidy.cli.commands.audit import AuditCommand
 from squidy.cli.commands.status import StatusCommand
 from squidy.cli.ui.theme import SquidyTheme
+from squidy.cli.ui.language_selector import select_language, detect_system_language
+from squidy.core.i18n import i18n
 
 # Console principal
 console = Console()
@@ -37,16 +39,9 @@ SQUIDY_VERSION = "2.0.0"
 
 def show_banner():
     """Mostra banner premium do Squidy"""
-    theme = SquidyTheme()
+    from squidy.core.i18n import i18n
     
-    # ASCII art do Squidy
-    squid_art = """
-    🦑
-    ╭─────────────────╮
-    │    SQUIDY       │
-    │   v2.0.0        │
-    ╰─────────────────╯
-    """
+    theme = SquidyTheme()
     
     # Título com gradiente
     title = theme.gradient_text("Squidy", "cyan", "aqua")
@@ -66,16 +61,16 @@ def show_banner():
         padding=(1, 4),
     )
     
-    # Painel de descrição
+    # Painel de descrição (usando i18n)
     desc_content = Text()
-    desc_content.append("Setup inteligente para projetos de software\n\n", style="bold white")
+    desc_content.append(i18n.t("banner.description") + "\n\n", style="bold white")
     desc_content.append("  ✦ ", style="bright_cyan")
-    desc_content.append("Converse com IA sobre seu projeto\n", style="white")
+    desc_content.append(i18n.t("banner.feature_1") + "\n", style="white")
     desc_content.append("  ✦ ", style="bright_cyan")
-    desc_content.append("Receba 10 arquivos de documentação prontos\n", style="white")
+    desc_content.append(i18n.t("banner.feature_2") + "\n", style="white")
     desc_content.append("  ✦ ", style="bright_cyan")
-    desc_content.append("Kanban · Constituição · ADRs · Diário\n\n", style="white")
-    desc_content.append("  OpenAI  ·  Anthropic", style="dim")
+    desc_content.append(i18n.t("banner.feature_3") + "\n\n", style="white")
+    desc_content.append("  " + i18n.t("banner.providers"), style="dim")
     
     desc_panel = Panel(
         desc_content,
@@ -124,6 +119,11 @@ def init_command(
         "--provider",
         help="Provedor de IA (openai, anthropic)",
     ),
+    lang: str = typer.Option(
+        None,
+        "--lang",
+        help="Idioma/Language (pt-BR, en-US)",
+    ),
 ):
     """
     Inicializa estrutura Squidy em um projeto
@@ -133,8 +133,24 @@ def init_command(
         $ squidy init ./meu-projeto      # Especifica caminho
         $ squidy init --dry-run          # Simula sem criar
         $ squidy init --manual           # Setup manual
+        $ squidy init --lang en-US       # Idioma inglês
     """
+    # Configura idioma
+    if lang:
+        # Usa idioma especificado via flag
+        if not i18n.set_language(lang):
+            console.print(f"[yellow]⚠️ Idioma '{lang}' não suportado. Usando padrão.[/yellow]\n")
+    else:
+        # Detecta idioma do sistema
+        detected = detect_system_language()
+        i18n.set_language(detected)
+    
     show_banner()
+    
+    # Seleção de idioma interativa (se não especificado via flag)
+    if not lang:
+        selected_lang = select_language(console, interactive=True)
+        i18n.set_language(selected_lang)
     
     fs = LocalFileSystem()
     cmd = InitCommand(fs, console)
@@ -252,13 +268,15 @@ def doctor_command(
 
 def main():
     """Entry point principal"""
+    from squidy.core.i18n import i18n
+    
     try:
         app()
     except KeyboardInterrupt:
-        console.print("\n\n[dim]🦑 Até logo![/dim]\n")
+        console.print(f"\n\n[dim]🦑 {i18n.t('errors.keyboard_interrupt')}[/dim]\n")
         sys.exit(0)
     except Exception as e:
-        console.print(f"\n[red]❌ Erro: {e}[/red]\n")
+        console.print(f"\n[red]{i18n.t('errors.generic', error=e)}[/red]\n")
         sys.exit(1)
 
 

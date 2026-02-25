@@ -4,6 +4,7 @@ File Generator
 Gera todos os arquivos de documentação do Squidy.
 """
 
+import json
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -12,6 +13,7 @@ from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
 
 from squidy.core.domain.config import ProjectConfig
+from squidy.core.i18n import i18n
 from squidy.core.ports.filesystem import FileSystemPort
 from squidy.generation.template_engine import TemplateEngine
 
@@ -87,7 +89,7 @@ class FileGenerator:
             ) as progress_bar:
                 task = progress_bar.add_task(
                     "[bright_cyan]🦑 Gerando arquivos Squidy...",
-                    total=len(self.FILES) + 1,  # +1 para diário
+                    total=len(self.FILES) + 2,  # +1 para diário, +1 para manifest
                 )
                 
                 for template_name, output_name, is_root in self.FILES:
@@ -105,6 +107,11 @@ class FileGenerator:
                 self._generate_diary(output_dir, context)
                 generated.append(f"diario/{context['month']}.md")
                 progress_bar.advance(task)
+                
+                # Gera manifest
+                self._generate_manifest(output_dir, config)
+                generated.append(".squidy/manifest.json")
+                progress_bar.advance(task)
         else:
             for template_name, output_name, is_root in self.FILES:
                 self._generate_file(
@@ -119,6 +126,10 @@ class FileGenerator:
             # Gera arquivo de diário
             self._generate_diary(output_dir, context)
             generated.append(f"diario/{context['month']}.md")
+            
+            # Gera manifest
+            self._generate_manifest(output_dir, config)
+            generated.append(".squidy/manifest.json")
         
         return generated
     
@@ -158,6 +169,7 @@ class FileGenerator:
     def _create_directories(self, output_dir: Path) -> None:
         """Cria estrutura de diretórios"""
         self.fs.mkdir(output_dir, parents=True, exist_ok=True)
+        self.fs.mkdir(output_dir / ".squidy", parents=True, exist_ok=True)
         self.fs.mkdir(output_dir / "doc", parents=True, exist_ok=True)
         self.fs.mkdir(output_dir / "diario", parents=True, exist_ok=True)
     
@@ -184,8 +196,9 @@ class FileGenerator:
         context: dict[str, Any],
     ) -> None:
         """Gera um arquivo individual"""
-        # Renderiza template
-        content = self.template_engine.render(template_name, **context)
+        # Renderiza template com idioma atual
+        language = i18n.get_language()
+        content = self.template_engine.render(template_name, language=language, **context)
         
         # Determina caminho de saída
         if is_root:
@@ -198,6 +211,38 @@ class FileGenerator:
     
     def _generate_diary(self, output_dir: Path, context: dict[str, Any]) -> None:
         """Gera arquivo de diário mensal"""
-        content = self.template_engine.render("diario.md", **context)
+        language = i18n.get_language()
+        content = self.template_engine.render("diario.md", language=language, **context)
         output_path = output_dir / "diario" / f"{context['month']}.md"
         self.fs.write_text(output_path, content)
+    
+    def _generate_manifest(
+        self,
+        output_dir: Path,
+        config: ProjectConfig,
+    ) -> None:
+        """
+        Gera arquivo manifest.json
+        
+        Args:
+            output_dir: Diretório de saída
+            config: Configuração do projeto
+        """
+        manifest = {
+            "name": config.project_name,
+            "display_name": config.display_name,
+            "version": config.version,
+            "language": i18n.get_language(),
+            "created_at": datetime.now().isoformat(),
+            "updated_at": datetime.now().isoformat(),
+            "squidy_version": "2.1.0",
+            "agent_type": config.agent_type,
+            "stack": {
+                "frontend": config.stack.frontend if config.stack else None,
+                "backend": config.stack.backend if config.stack else None,
+                "database": config.stack.banco if config.stack else None,
+            },
+        }
+        
+        output_path = output_dir / ".squidy" / "manifest.json"
+        self.fs.write_text(output_path, json.dumps(manifest, indent=2, ensure_ascii=False))

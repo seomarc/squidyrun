@@ -1,7 +1,8 @@
-# 🦑 Squidy v2.0.1
+# 🦑 Squidy v2.1.0
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0.1-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-2.1.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/i18n-🇧🇷🇺🇸-green.svg" alt="i18n">
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/code%20style-black-black.svg" alt="Code style: black">
@@ -135,7 +136,21 @@ squidy init --dry-run
 
 # Setup manual (sem IA)
 squidy init --manual
+
+# Escolher idioma (pt-BR ou en-US)
+squidy init --lang en-US
 ```
+
+### 🌍 Idiomas Suportados
+
+O Squidy suporta múltiplos idiomas:
+
+| Idioma | Código | Status |
+|--------|--------|--------|
+| 🇧🇷 Português (Brasil) | `pt-BR` | ✅ Completo |
+| 🇺🇸 English (US) | `en-US` | ✅ Completo |
+
+O idioma pode ser selecionado via flag `--lang` ou de forma interativa durante o setup.
 
 ### Auditoria de Projeto
 

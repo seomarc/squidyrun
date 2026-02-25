@@ -1,0 +1,137 @@
+# 🇺🇸 Template Translations in English (US)
+# Used for generating documentation files
+
+# Section names in templates
+doc_sections:
+  constitution: "CONSTITUTION"
+  oracle: "ORACLE"
+  kanban: "KANBAN"
+  policies: "POLICIES"
+  emergency: "EMERGENCY"
+  diary_index: "DIARY INDEX"
+  session_context: "SESSION CONTEXT"
+  agent: "AGENT"
+  diary: "DIARY"
+
+# Kanban sections
+kanban_sections:
+  epics: "EPICS"
+  backlog: "BACKLOG"
+  in_progress: "IN PROGRESS"
+  done: "COMPLETED"
+  blocked: "BLOCKED"
+  metrics: "METRICS"
+
+# Complexities
+complexity:
+  xs: "XS"
+  s: "S"
+  m: "M"
+  l: "L"
+  xl: "XL"
+  xs_desc: "< 1h"
+  s_desc: "1-2h"
+  m_desc: "2-4h"
+  l_desc: "4-8h"
+  xl_desc: "> 8h"
+
+# Priorities
+priority:
+  p0: "P0"
+  p1: "P1"
+  p2: "P2"
+  p3: "P3"
+  p0_desc: "Critical (blocks release)"
+  p1_desc: "High (important)"
+  p2_desc: "Medium (desirable)"
+  p3_desc: "Low (nice to have)"
+
+# Status
+doc_status:
+  active: "Active"
+  accepted: "Accepted"
+  done: "Completed"
+  blocked: "Blocked"
+  pending: "Pending"
+
+# Naming conventions
+conventions:
+  camelCase: "camelCase"
+  PascalCase: "PascalCase"
+  snake_case: "snake_case"
+  UPPER_SNAKE: "UPPER_SNAKE"
+  kebab_case: "kebab-case"
+
+# Common terms
+terms:
+  project: "Project"
+  purpose: "Purpose"
+  stack: "Technology Stack"
+  frontend: "Frontend"
+  backend: "Backend"
+  database: "Database"
+  architecture: "Architecture"
+  principles: "Principles"
+  prohibitions: "Prohibitions"
+  conventions: "Conventions"
+  definition_of_done: "Definition of Done"
+  restrictions: "Restrictions"
+  quality: "Quality"
+  generated_at: "Generated at"
+  updated_at: "Last updated"
+  version: "Version"
+  type: "Type"
+  agent: "Agent"
+  task: "Task"
+  epic: "Epic"
+  subtask: "Subtask"
+  description: "Description"
+  priority: "Priority"
+  complexity: "Complexity"
+  acceptance_criteria: "Acceptance Criteria"
+  notes: "Notes"
+  next_id: "Next ID"
+  wip: "WIP"
+  wip_limit: "limit"
+
+# Rituals and instructions
+rituals:
+  initialization_title: "Initialization Ritual"
+  must_read: "Before any action, you MUST"
+  step_1: "Confirm Initialization"
+  step_2: "Execute Required Reading"
+  step_3: "Fill Initial Kanban"
+  step_4: "Register in Diary"
+  read_in_order: "Read IN ORDER"
+
+# Rules
+doc_rules:
+  golden_rules: "Golden Rules"
+  never: "NEVER"
+  always: "ALWAYS"
+  rule_1: "code before reading the Constitution"
+  rule_2: "ignore emergency.md"
+  rule_3: "link to TASK-ID"
+  rule_4: "update session-context.md"
+  rule_5: "register in diary"
+
+# Emergency
+emergency:
+  active_blocks: "Active Blockers"
+  no_blocks: "No blockers registered at the moment"
+  block_template: "Block Registration Template"
+  severity: "Severity"
+  critical: "Critical"
+  important: "Important"
+  low: "Low"
+  impact: "Impact"
+  resolution: "Resolution"
+  resolved: "Resolved Blockers"
+
+# Navigation
+navigation:
+  quick_guide: "Quick Guide"
+  hierarchy: "Hierarchy"
+  flow: "Workflow"
+  quick_ref: "Quick References"
+  next_action: "Next Expected Action"
