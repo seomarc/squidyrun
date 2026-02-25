@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "squidy"
-version = "2.1.3"
+version = "2.1.4"
 description = "Smart Setup for AI Agent Projects - Governance and Audit"
 readme = "README.md"
 license = "MIT"
@@ -60,6 +60,9 @@ Changelog = "https://github.com/seomarc/squidy/blob/main/CHANGELOG.md"
 where = ["."]
 include = ["squidy*"]
 exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+squidy = ["locales/**/*.yaml"]
 
 [tool.black]
 line-length = 100

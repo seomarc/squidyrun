@@ -1,7 +1,7 @@
-# 🦑 Squidy v2.1.2
+# 🦑 Squidy v2.1.4
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.1.2-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-2.1.4-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/i18n-🇧🇷🇺🇸-green.svg" alt="i18n">
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
