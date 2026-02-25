@@ -1,7 +1,7 @@
-# 🦑 Squidy v2.1.0
+# 🦑 Squidy v2.1.1
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.1.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-2.1.1-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/i18n-🇧🇷🇺🇸-green.svg" alt="i18n">
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
@@ -10,16 +10,16 @@
 </p>
 
 <p align="center">
-  <b>Setup inteligente para projetos com Agentes de IA</b><br>
-  Governança, Auditoria e Documentação Automática para Claude, GPT-4, Cursor e mais
+  <b>Smart Setup for AI Agent Projects</b><br>
+  Governance, Audit, and Automatic Documentation for Claude, GPT-4, Cursor, and more
 </p>
 
 <p align="center">
-  <a href="#-instalação">Instalação</a> •
-  <a href="#-como-usar">Como Usar</a> •
-  <a href="#-funcionalidades">Funcionalidades</a> •
-  <a href="#-documentação">Documentação</a> •
-  <a href="#-contribuindo">Contribuindo</a>
+  <a href="#-installation">Installation</a> •
+  <a href="#-usage">Usage</a> •
+  <a href="#-features">Features</a> •
+  <a href="#-documentation">Documentation</a> •
+  <a href="#-contributing">Contributing</a>
 </p>
 
 ---
@@ -30,32 +30,32 @@
 
 ---
 
-## 🎯 O Problema
+## 🎯 The Problem
 
-Você usa **Claude**, **ChatGPT** ou **Cursor** para programar, mas:
+You use **Claude**, **ChatGPT**, or **Cursor** to code, but:
 
-- 🤯 **A IA esquece tudo** na próxima conversa (perda de contexto)
-- 📝 **Você reescreve** os mesmos requisitos toda semana
-- 🎨 **O agente fica "criativo"** e muda sua arquitetura sem avisar
-- 📂 **Seu projeto vira bagunça** porque ninguém documenta nada
-- ⏱️ **Gasta 30 min** configurando prompt antes de começar a codar
+- 🤯 **AI forgets everything** in the next conversation (context loss)
+- 📝 **You rewrite** the same requirements every week
+- 🎨 **The agent gets "creative"** and changes your architecture without warning
+- 📂 **Your project becomes a mess** because no one documents anything
+- ⏱️ **You spend 30 min** setting up prompts before you start coding
 
-**O Squidy resolve isso em 2 minutos.**
+**Squidy solves this in 2 minutes.**
 
 ---
 
-## ✨ O Que é o Squidy?
+## ✨ What is Squidy?
 
-O **Squidy** é uma CLI premium que cria automaticamente a estrutura de governança para projetos com Agentes de IA.
+**Squidy** is a premium CLI that automatically creates a governance structure for AI Agent projects.
 
-### 🚀 Em vez de digitar 20 mensagens explicando seu projeto toda vez:
+### 🚀 Instead of typing 20 messages explaining your project every time:
 
-1. 🎤 **Converse com IA** sobre seu projeto (5-6 perguntas inteligentes)
-2. 🧠 **Deixe a IA entender** seu stack, regras e convenções
-3. 📋 **Receba 10 arquivos de documentação** prontos para usar
-4. 🔒 **Crie um "contrato"** entre você e a IA: regras, proibições, DoD
+1. 🎤 **Chat with AI** about your project (5-6 smart questions)
+2. 🧠 **Let the AI understand** your stack, rules, and conventions
+3. 📋 **Get 10 documentation files** ready to use
+4. 🔒 **Create a "contract"** between you and the AI: rules, prohibitions, DoD
 
-**Resultado:** Sua IA nunca mais perde o contexto ou sai do escopo.
+**Result:** Your AI never loses context or goes out of scope.
 
 ---
 
@@ -64,255 +64,255 @@ O **Squidy** é uma CLI premium que cria automaticamente a estrutura de governan
 ```bash
 $ squidy init
 
-🦑 Setup com Agente IA
+🦑 AI Agent Setup
 
-Como funciona:
-  1. Me conte sobre o projeto (uma frase é suficiente)
-  2. Farei até 6 perguntas contextuais
-  3. Gero automaticamente 10 arquivos de documentação
+How it works:
+  1. Tell me about your project (one sentence is enough)
+  2. I'll ask up to 6 contextual questions
+  3. Automatically generate 10 documentation files
 
-🤖 Agente: Olá! Me conte sobre o projeto que você quer configurar.
-           Exemplo: "API REST para delivery com Node e PostgreSQL"
-   Você: API REST para delivery com Node e PostgreSQL
+🤖 Agent: Hi! Tell me about the project you want to configure.
+         Example: "REST API for delivery with Node and PostgreSQL"
+   You: REST API for delivery with Node and PostgreSQL
 
-🤖 Agente: Legal! Qual framework frontend você vai usar?
-   Você: React com TypeScript
+🤖 Agent: Great! Which frontend framework will you use?
+   You: React with TypeScript
 
-🤖 Agente: Perfeito! Vai precisar de autenticação?
-   Você: Sim, JWT
+🤖 Agent: Perfect! Will you need authentication?
+   You: Yes, JWT
 
-... (mais 2-3 perguntas) ...
+... (2-3 more questions) ...
 
-✅ Configuração gerada com sucesso!
+✅ Configuration generated successfully!
 
-🦑 10 arquivos gerados em /home/user/delivery-api
+🦑 10 files generated at /home/user/delivery-api
 
-Próximos passos:
-  1. Diga ao seu agente: "Acesse /home/user/delivery-api/readme-agent.md e siga o ritual"
-  2. Revise /home/user/delivery-api/doc/constituicao.md
-  3. Adicione tarefas em /home/user/delivery-api/doc/kanban.md
+Next steps:
+  1. Tell your agent: "Access /home/user/delivery-api/readme-agent.md and follow the ritual"
+  2. Review /home/user/delivery-api/doc/constitution.md
+  3. Add tasks to /home/user/delivery-api/doc/kanban.md
 ```
 
 ---
 
-## 📦 Instalação
+## 📦 Installation
 
-### Via pip (recomendado)
+### Via pip (recommended)
 
 ```bash
 pip install squidy
 squidy --version
 ```
 
-### Via pipx (isolado)
+### Via pipx (isolated)
 
 ```bash
 pipx install squidy
 squidy --version
 ```
 
-### Desenvolvimento
+### Development
 
 ```bash
 git clone https://github.com/seomarc/squidyrun.git
 cd squidyrun
 python -m venv venv && source venv/bin/activate  # Linux/Mac
-# ou: python -m venv venv && venv\Scripts\activate  # Windows
+# or: python -m venv venv && venv\Scripts\activate  # Windows
 pip install -e ".[dev]"
 squidy --version
 ```
 
-**Requisitos:** Python 3.9+
+**Requirements:** Python 3.9+
 
 ---
 
-## 🎮 Como Usar
+## 🎮 Usage
 
-### Setup com IA (Recomendado)
+### Setup with AI (Recommended)
 
 ```bash
-# Setup interativo com entrevista IA
+# Interactive setup with AI interview
 squidy init
 
-# Especificar caminho
-squidy init ./meu-projeto
+# Specify path
+squidy init ./my-project
 
-# Simular sem criar arquivos (dry-run)
+# Simulate without creating files (dry-run)
 squidy init --dry-run
 
-# Setup manual (sem IA)
+# Manual setup (without AI)
 squidy init --manual
 
-# Escolher idioma (pt-BR ou en-US)
+# Choose language (pt-BR or en-US)
 squidy init --lang en-US
 ```
 
-### 🌍 Idiomas Suportados
+### 🌍 Supported Languages
 
-O Squidy v2.1+ suporta múltiplos idiomas! Toda a documentação e interface são geradas no idioma selecionado:
+Squidy v2.1+ supports multiple languages! All documentation and interface are generated in the selected language:
 
-| Idioma | Código | Status |
-|--------|--------|--------|
-| 🇧🇷 Português (Brasil) | `pt-BR` | ✅ Completo |
-| 🇺🇸 English (US) | `en-US` | ✅ Completo |
+| Language | Code | Status |
+|----------|------|--------|
+| 🇧🇷 Portuguese (Brazil) | `pt-BR` | ✅ Complete |
+| 🇺🇸 English (US) | `en-US` | ✅ Complete |
 
-**Como usar:**
+**How to use:**
 ```bash
-# Selecionar idioma via flag
+# Select language via flag
 squidy init --lang en-US
 
-# Ou deixe o Squidy detectar automaticamente
+# Or let Squidy prompt you to choose
 squidy init
 
-# 🌍 Selecione o idioma / Select language:
+# 🌍 Select your language:
 # [1] 🇧🇷 Português (Brasil)
 # [2] 🇺🇸 English (US)
 ```
 
-📖 **[Guia Completo de Internacionalização](docs/I18N.md)**
+📖 **[Complete Internationalization Guide](docs/I18N.md)**
 
-**O que é traduzido:**
-- ✅ Interface CLI completa
-- ✅ Todos os 10 templates de documentação
-- ✅ Prompts de entrevista com IA
-- ✅ Mensagens de auditoria e status
+**What is translated:**
+- ✅ Complete CLI interface
+- ✅ All 10 documentation templates
+- ✅ AI interview prompts
+- ✅ Audit and status messages
 
-### Auditoria de Projeto
+### Project Audit
 
 ```bash
-# Audita diretório atual
+# Audit current directory
 squidy audit
 
-# Audita projeto específico
-squidy audit ./meu-projeto
+# Audit specific project
+squidy audit ./my-project
 
-# Saída em JSON
+# JSON output
 squidy audit -f json
 
-# Aplicar correções automáticas
+# Apply automatic fixes
 squidy audit --fix
 ```
 
-### Status Rápido
+### Quick Status
 
 ```bash
-# Mostra status do projeto
+# Show project status
 squidy status
 
-# Diagnóstico completo
+# Complete diagnosis
 squidy doctor
 ```
 
 ---
 
-## 🏗️ O Que o Squidy Cria?
+## 🏗️ What Does Squidy Create?
 
-O Squidy gera uma estrutura de governança completa:
+Squidy generates a complete governance structure:
 
 ```
-meu-projeto/
-├── readme-agent.md          # 🤖 Guia completo para o agente de IA
+my-project/
+├── readme-agent.md          # 🤖 Complete guide for the AI agent
 ├── .squidy/
-│   └── manifest.json        # 📋 Manifesto do projeto
+│   └── manifest.json        # 📋 Project manifest
 ├── doc/
-│   ├── AGENT.md             # 🎯 Referência rápida do agente
-│   ├── constituicao.md      # ⚖️  Princípios, proibições, DoD
-│   ├── oraculo.md           # 🧙 Decisões de arquitetura (ADRs)
-│   ├── politicas.md         # 📋 Stack, convenções, políticas
-│   ├── kanban.md            # 📊 Gestão de tarefas (Épicos → Tasks → Subtarefas)
-│   ├── emergencia.md        # 🚨 Registro de bloqueios críticos
-│   ├── indice-diario.md     # 📑 Índice do histórico
-│   └── contexto-sessao.md   # 💾 Cache do estado atual
-└── diario/
-    └── 2026-02.md           # 📅 Log automático de decisões
+│   ├── AGENT.md             # 🎯 Quick reference for the agent
+│   ├── constitution.md      # ⚖️  Principles, prohibitions, DoD
+│   ├── oracle.md            # 🧙 Architecture decisions (ADRs)
+│   ├── policies.md          # 📋 Stack, conventions, policies
+│   ├── kanban.md            # 📊 Task management (Epics → Tasks → Subtasks)
+│   ├── emergency.md         # 🚨 Critical blocker registry
+│   ├── diary-index.md       # 📑 History index
+│   └── session-context.md   # 💾 Current state cache
+└── diary/
+    └── 2026-02.md           # 📅 Automatic decision log
 ```
 
-### 📋 Estrutura do Kanban
+### 📋 Kanban Structure
 
 ```markdown
-## 🔥 ÉPICOS
-### ÉPICO-001: Sistema de Autenticação
-**Prioridade:** P0 | **Complexidade:** M
+## 🔥 EPICS
+### EPIC-001: Authentication System
+**Priority:** P0 | **Complexity:** M
 **Tasks:** TASK-001, TASK-002
 
 ## 📋 BACKLOG
-### TASK-001: Setup JWT [ÉPICO-001]
-**Complexidade:** S | **Prioridade:** P0
-**Subtarefas:**
-- [ ] SUB-001: Instalar biblioteca (XS - 30min)
-- [ ] SUB-002: Configurar middleware (S - 1h)
+### TASK-001: Setup JWT [EPIC-001]
+**Complexity:** S | **Priority:** P0
+**Subtasks:**
+- [ ] SUB-001: Install library (XS - 30min)
+- [ ] SUB-002: Configure middleware (S - 1h)
 
-## 🏗️ EM PROGRESSO (WIP: 1/3)
+## 🏗️ IN PROGRESS (WIP: 1/3)
 - [ ] TASK-001: Setup JWT
 
-## ✅ CONCLUÍDO
-- [x] TASK-000: Setup inicial
+## ✅ COMPLETED
+- [x] TASK-000: Initial setup
 ```
 
 ---
 
-## 🎨 Funcionalidades
+## 🎨 Features
 
-### ✨ v2.1 - Novidades
+### ✨ v2.1 - New Features
 
-- 🌍 **Multi-idioma** - Suporte completo a Português e Inglês (pt-BR, en-US)
-- 📋 **Templates Bilíngues** - Documentação gerada no idioma selecionado
-- 🤖 **IA Multi-idioma** - Entrevista e configuração em português ou inglês
+- 🌍 **Multi-language** - Full support for Portuguese and English (pt-BR, en-US)
+- 📋 **Bilingual Templates** - Documentation generated in selected language
+- 🤖 **Multi-language AI** - Interview and configuration in Portuguese or English
 
-### ✨ v2.0 - Novidades
+### ✨ v2.0 - New Features
 
-- 🎨 **UI/UX Premium** - Interface moderna com Rich, gradientes e animações
-- 🤖 **Entrevista Inteligente** - 5 fases estruturadas com follow-ups contextuais
-- 📊 **Auditoria Completa** - Verifica estrutura, kanban, freshness e consistência
-- 🔌 **Arquitetura Limpa** - Ports & Adapters, extensível e testável
-- 📋 **Templates v2.0** - Documentação mais completa e acionável
-- 🧪 **Testes** - Suite com pytest, 10/10 passando
+- 🎨 **Premium UI/UX** - Modern interface with Rich, gradients, and animations
+- 🤖 **Smart Interview** - 5 structured phases with contextual follow-ups
+- 📊 **Complete Audit** - Checks structure, kanban, freshness, and consistency
+- 🔌 **Clean Architecture** - Ports & Adapters, extensible and testable
+- 📋 **Templates v2.0** - More complete and actionable documentation
+- 🧪 **Tests** - pytest suite, 10/10 passing
 
-### 🤖 Provedores de IA Suportados
+### 🤖 Supported AI Providers
 
-| Provedor | Modelos | Custo |
-|----------|---------|-------|
-| **OpenAI** | GPT-4o-mini | Pago |
-| **Anthropic** | Claude 3 Haiku/Sonnet | Pago |
+| Provider | Models | Cost |
+|----------|--------|------|
+| **OpenAI** | GPT-4o-mini | Paid |
+| **Anthropic** | Claude 3 Haiku/Sonnet | Paid |
 
-### 🔍 Auditoria
+### 🔍 Audit
 
-O Squidy pode auditar projetos existentes:
+Squidy can audit existing projects:
 
-- ✅ **StructureChecker** - Verifica arquivos obrigatórios
-- ✅ **KanbanChecker** - Analisa WIP limit, tarefas bloqueadas
-- ✅ **FreshnessChecker** - Identifica arquivos desatualizados
-- ✅ **ConsistencyChecker** - Verifica consistência entre arquivos
+- ✅ **StructureChecker** - Checks required files
+- ✅ **KanbanChecker** - Analyzes WIP limit, blocked tasks
+- ✅ **FreshnessChecker** - Identifies outdated files
+- ✅ **ConsistencyChecker** - Checks consistency between files
 
 ---
 
-## 🛠️ Stack Tecnológica
+## 🛠️ Tech Stack
 
-- **Python 3.9+** - Linguagem principal
+- **Python 3.9+** - Main language
 - **Typer** - CLI framework
-- **Rich** - UI components e formatação
-- **Pydantic v2** - Validação de dados
+- **Rich** - UI components and formatting
+- **Pydantic v2** - Data validation
 - **Jinja2** - Templates
-- **OpenAI / Anthropic** - Provedores de IA
+- **OpenAI / Anthropic** - AI providers
 
 ---
 
-## 📚 Documentação
+## 📚 Documentation
 
-- 📖 [Documentação Completa](https://docs.squidy.run)
-- 🌍 **[Guia de Internacionalização](docs/I18N.md)** - Multi-idioma (pt-BR, en-US)
-- 🚀 [Guia de Início Rápido](https://docs.squidy.run/quickstart)
-- 🏗️ [Arquitetura](https://docs.squidy.run/architecture)
-- 🤝 [Contribuindo](CONTRIBUTING.md)
-- 🌐 [Contribuindo com Traduções](CONTRIBUTING-I18N.md)
+- 📖 [Complete Documentation](https://docs.squidy.run)
+- 🌍 **[Internationalization Guide](docs/I18N.md)** - Multi-language (pt-BR, en-US)
+- 🚀 [Quick Start Guide](https://docs.squidy.run/quickstart)
+- 🏗️ [Architecture](https://docs.squidy.run/architecture)
+- 🤝 [Contributing](CONTRIBUTING.md)
+- 🌐 [Contributing with Translations](CONTRIBUTING-I18N.md)
 
 ---
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-Contribuições são bem-vindas! Leia nosso [Guia de Contribuição](CONTRIBUTING.md).
+Contributions are welcome! Read our [Contributing Guide](CONTRIBUTING.md).
 
-### Desenvolvimento
+### Development
 
 ```bash
 # Clone
@@ -323,7 +323,7 @@ cd squidyrun
 python -m venv venv && source venv/bin/activate
 pip install -e ".[dev]"
 
-# Testes
+# Tests
 pytest
 
 # Lint
@@ -337,40 +337,10 @@ pre-commit run --all-files
 
 ---
 
-## 📈 Roadmap
-
-### v2.1 ✅ Lançado!
-- [x] 🌍 **Suporte Multi-idioma** - Português e Inglês
-- [ ] Templates para mais stacks (Vue, Svelte, Go, Rust)
-- [ ] Integração com GitHub/GitLab
-- [ ] Sync com Notion/Confluence
-
-### v2.2 (Próximo)
-- [ ] Dashboard web (Squidy Cloud)
-- [ ] Mais idiomas (Espanhol, Francês, Alemão)
-- [ ] Plugins oficiais (Git, Jira, Slack)
-- [ ] API REST
-- [ ] CLI autocompletion
-- [ ] Temas customizáveis
-
-### v2.2
-- [ ] Plugins oficiais (Git, Jira, Slack)
-- [ ] API REST
-- [ ] CLI autocompletion
-- [ ] Temas customizáveis
-
-### v3.0
-- [ ] Squidy Cloud (SaaS)
-- [ ] Colaboração em tempo real
-- [ ] Analytics de projeto
-- [ ] Enterprise features
-
----
-
 ## 🔗 Links
 
 <p align="center">
-  <a href="https://squidy.run">🌐 Site</a> •
+  <a href="https://squidy.run">🌐 Website</a> •
   <a href="https://pypi.org/project/squidy/">📦 PyPI</a> •
   <a href="https://github.com/seomarc/squidyrun">💻 GitHub</a> •
   <a href="https://www.youtube.com/@seomarcos">▶️ YouTube</a> •
@@ -378,33 +348,33 @@ pre-commit run --all-files
   <a href="https://buymeacoffee.com/seomarcos">☕ Buy Me a Coffee</a>
 </p>
 
-### 👤 Desenvolvedor
+### 👤 Developer
 
-- **Marcos Tadeu** - [Site Pessoal](https://www.marcostadeu.com.br/)
+- **Marcos Tadeu** - [Personal Website](https://www.marcostadeu.com.br/)
 - **SearchOps** - [searchops.io](https://searchops.io/)
 
 ---
 
-## 💖 Apoie o Projeto
+## 💖 Support the Project
 
-Se o Squidy te ajudou, considere:
+If Squidy helped you, consider:
 
-- ⭐ Dar uma estrela no [GitHub](https://github.com/seomarc/squidyrun)
-- 🐦 Compartilhar no Twitter
-- 💼 Usar na sua empresa
-- 🤝 Contribuir com código
+- ⭐ Give a star on [GitHub](https://github.com/seomarc/squidyrun)
+- 🐦 Share on Twitter
+- 💼 Use it at your company
+- 🤝 Contribute with code
 - ☕ [Buy Me a Coffee](https://buymeacoffee.com/seomarcos)
 
 ---
 
-## 📄 Licença
+## 📄 License
 
-MIT License - veja [LICENSE](LICENSE) para detalhes.
+MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
 <p align="center">
-  Feito com 🦑 por <a href="https://github.com/seomarc">Marcos Tadeu</a> • <a href="https://github.com/seomarc/squidyrun">💻 GitHub do Projeto</a>
+  Made with 🦑 by <a href="https://github.com/seomarc">Marcos Tadeu</a> • <a href="https://github.com/seomarc/squidyrun">💻 Project GitHub</a>
 </p>
 
 <p align="center">
@@ -413,7 +383,7 @@ MIT License - veja [LICENSE](LICENSE) para detalhes.
   <a href="https://github.com/seomarc/squidyrun">💻 GitHub</a> •
   <a href="https://www.youtube.com/@seomarcos">▶️ YouTube</a> •
   <a href="https://www.linkedin.com/in/seomarc/">💼 LinkedIn</a> •
-  <a href="https://www.marcostadeu.com.br/">👤 Desenvolvedor</a> •
+  <a href="https://www.marcostadeu.com.br/">👤 Developer</a> •
   <a href="https://searchops.io/">🏢 SearchOps</a> •
-  <a href="mailto:contato@squidy.run">✉️ Contato</a>
+  <a href="mailto:contato@squidy.run">✉️ Contact</a>
 </p>
