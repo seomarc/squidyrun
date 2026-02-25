@@ -129,28 +129,26 @@ def init_command(
     Inicializa estrutura Squidy em um projeto
     
     Example:
-        $ squidy init                    # Setup interativo com IA
+        $ squidy init                    # Setup interativo com IA (escolhe idioma)
         $ squidy init ./meu-projeto      # Especifica caminho
         $ squidy init --dry-run          # Simula sem criar
         $ squidy init --manual           # Setup manual
-        $ squidy init --lang en-US       # Idioma inglês
+        $ squidy init --lang en-US       # Idioma inglês (pula seleção)
     """
-    # Configura idioma
+    # 🌍 SELEÇÃO DE IDIOMA (sempre primeiro, antes de tudo)
     if lang:
-        # Usa idioma especificado via flag
+        # Usa idioma especificado via flag (pula seleção interativa)
         if not i18n.set_language(lang):
             console.print(f"[yellow]⚠️ Idioma '{lang}' não suportado. Usando padrão.[/yellow]\n")
+            selected_lang = select_language(console, interactive=True)
+            i18n.set_language(selected_lang)
     else:
-        # Detecta idioma do sistema
-        detected = detect_system_language()
-        i18n.set_language(detected)
-    
-    show_banner()
-    
-    # Seleção de idioma interativa (se não especificado via flag)
-    if not lang:
+        # Mostra seleção de idioma imediatamente
         selected_lang = select_language(console, interactive=True)
         i18n.set_language(selected_lang)
+    
+    # Agora mostra o banner no idioma selecionado
+    show_banner()
     
     fs = LocalFileSystem()
     cmd = InitCommand(fs, console)

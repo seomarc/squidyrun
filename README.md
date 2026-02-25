@@ -24,6 +24,12 @@
 
 ---
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=seomarc/squidyrun&type=date&legend=top-left)](https://www.star-history.com/#seomarc/squidyrun&type=date&legend=top-left)
+
+---
+
 ## 🎯 O Problema
 
 Você usa **Claude**, **ChatGPT** ou **Cursor** para programar, mas:
