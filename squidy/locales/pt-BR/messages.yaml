@@ -64,6 +64,12 @@ init:
     - "devops"
   agent_default: "desenvolvedor-fullstack"
   
+  # Seleção de provider
+  provider_select: "🤖 Selecione o provedor de IA"
+  provider_openai: "OpenAI (GPT-4o)"
+  provider_anthropic: "Anthropic (Claude)"
+  provider_invalid: "❌ Opção inválida. Tente novamente."
+
   # API Keys
   api_key_prompt: "🔐 Digite a API key para {provider}"
   api_key_hint: "(a chave não aparece enquanto digita)"

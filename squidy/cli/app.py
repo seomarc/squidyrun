@@ -115,9 +115,9 @@ def init_command(
         help="Setup manual sem IA",
     ),
     provider: str = typer.Option(
-        "openai",
+        None,
         "--provider",
-        help="Provedor de IA (openai, anthropic)",
+        help="Provedor de IA (openai, anthropic). Se omitido, pergunta interativamente.",
     ),
     lang: str = typer.Option(
         None,

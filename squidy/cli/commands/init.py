@@ -53,7 +53,7 @@ class InitCommand:
         is_existing = self._is_squidy_project(target_path)
         
         if is_existing and not only_missing:
-            self.console.print(f"\n[yellow]⚠️  {i18n.t('init.already_exists', path=target_path)}[/yellow]")
+            self.console.print(f"\n[yellow]{i18n.t('init.already_exists', path=target_path)}[/yellow]")
             if not Confirm.ask(i18n.t('init.overwrite_confirm'), default=False):
                 self.console.print(f"[dim]{i18n.t('init.operation_cancelled')}.[/dim]")
                 return
@@ -177,7 +177,7 @@ class InitCommand:
     
     def _ai_config(self, provider_name: str) -> Optional[ProjectConfig]:
         """Obtém configuração via entrevista com IA"""
-        self.console.print(f"\n[bold cyan]🤖 {i18n.t('init.title')}[/bold cyan]\n")
+        self.console.print(f"\n[bold cyan]{i18n.t('init.title')}[/bold cyan]\n")
         
         # Seleciona provider
         provider = self._select_provider(provider_name)
@@ -191,12 +191,42 @@ class InitCommand:
         
         return ProjectConfig.from_dict(config_dict)
     
-    def _select_provider(self, provider_name: str) -> Optional[AIProviderPort]:
+    def _prompt_provider(self) -> str:
+        """Pergunta ao usuário qual provider de IA usar"""
+        providers = [
+            ("openai", i18n.t("init.provider_openai")),
+            ("anthropic", i18n.t("init.provider_anthropic")),
+        ]
+
+        self.console.print(f"\n{i18n.t('init.provider_select')}\n")
+        for idx, (_, label) in enumerate(providers, 1):
+            self.console.print(f"  [{idx}] {label}")
+        self.console.print()
+
+        while True:
+            try:
+                choice = self.console.input("  > ").strip()
+                if choice.isdigit():
+                    idx = int(choice) - 1
+                    if 0 <= idx < len(providers):
+                        return providers[idx][0]
+                # Aceita também o nome direto (ex: "openai")
+                if choice.lower() in dict(providers):
+                    return choice.lower()
+                self.console.print(f"  [red]{i18n.t('init.provider_invalid')}[/red]\n")
+            except KeyboardInterrupt:
+                self.console.print()
+                return "openai"
+
+    def _select_provider(self, provider_name: Optional[str]) -> Optional[AIProviderPort]:
         """Seleciona e configura provider de IA"""
+        if not provider_name:
+            provider_name = self._prompt_provider()
+
         self.console.print(f"\n[dim]Configurando provider: {provider_name}...[/dim]")
         
         # Obtém API key
-        self.console.print(f"\n[blue]🔐 {i18n.t('init.api_key_prompt', provider=provider_name)}:[/blue]")
+        self.console.print(f"\n[blue]{i18n.t('init.api_key_prompt', provider=provider_name)}:[/blue]")
         self.console.print(f"[dim]{i18n.t('init.api_key_hint')}[/dim]\n")
         
         api_key = getpass.getpass("")
@@ -239,7 +269,7 @@ class InitCommand:
         )
         
         # Descrição inicial
-        self.console.print(f"[bold cyan]🤖 {i18n.t('init.interview_agent')}: [/bold cyan]{i18n.t('init.interview_agent_greeting')}")
+        self.console.print(f"[bold cyan]{i18n.t('init.interview_agent')}: [/bold cyan]{i18n.t('init.interview_agent_greeting')}")
         self.console.print(f"[dim]           {i18n.t('init.interview_example')}[/dim]")
         
         project_description = Prompt.ask(f"[bold white]   {i18n.t('init.interview_you')}[/bold white]")
@@ -277,7 +307,7 @@ class InitCommand:
                 break
             
             # Mostra pergunta
-            self.console.print(f"[bold cyan]🤖 {i18n.t('init.interview_agent')}:[/bold cyan] {question}")
+            self.console.print(f"[bold cyan]{i18n.t('init.interview_agent')}:[/bold cyan] {question}")
             answer = Prompt.ask(f"[bold white]   {i18n.t('init.interview_you')}[/bold white]")
             
             if not answer or len(answer.strip()) < 2:
@@ -308,7 +338,7 @@ class InitCommand:
     
     def _show_preview(self, config: ProjectConfig, path: Path) -> None:
         """Mostra preview em modo dry-run"""
-        self.console.print(f"\n[bold yellow]🔍 {i18n.t('init.dry_run_title')}[/bold yellow]\n")
+        self.console.print(f"\n[bold yellow]{i18n.t('init.dry_run_title')}[/bold yellow]\n")
         
         self.console.print(f"[dim]{i18n.t('init.dry_run_directory')}:[/dim] {path}")
         self.console.print(f"[dim]{i18n.t('init.dry_run_project')}:[/dim] {config.display_name}")

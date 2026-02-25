@@ -192,9 +192,8 @@ class I18nManager:
                     with open(yaml_file, "r", encoding="utf-8") as f:
                         data = yaml.safe_load(f)
                         if isinstance(data, dict):
-                            # Usa nome do arquivo como namespace
-                            namespace = yaml_file.stem
-                            translations[namespace] = data
+                            # Merge direto no dicionário raiz (sem namespace por arquivo)
+                            translations.update(data)
                 except Exception:
                     # Ignora arquivos com erro
                     pass

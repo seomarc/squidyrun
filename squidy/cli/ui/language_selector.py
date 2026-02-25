@@ -64,14 +64,14 @@ def select_language(console: Console, interactive: bool = True) -> str:
                     i18n.set_language(selected_code)
                     
                     # Confirmação
-                    console.print(f"\n  ✓ {i18n.t('language.selected')}: [bold]{selected_name}[/bold]\n")
-                    
+                    console.print(f"\n  {i18n.t('language.selected')}: [bold]{selected_name}[/bold]\n")
+
                     return selected_code
-            
+
             # Tentativa de código direto
             if choice in languages:
                 i18n.set_language(choice)
-                console.print(f"\n  ✓ {i18n.t('language.selected')}: [bold]{languages[choice]}[/bold]\n")
+                console.print(f"\n  {i18n.t('language.selected')}: [bold]{languages[choice]}[/bold]\n")
                 return choice
             
             console.print(f"  [red]{i18n.t('language.invalid')}[/red]\n")

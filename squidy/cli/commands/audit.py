@@ -43,7 +43,7 @@ class AuditCommand:
         is_squidy, confidence = self._detect_project(path)
         
         if not is_squidy:
-            self.console.print(f"\n[yellow]⚠️  {i18n.t('audit.not_squidy_project')}: {path}[/yellow]")
+            self.console.print(f"\n[yellow]{i18n.t('audit.not_squidy_project')}: {path}[/yellow]")
             self.console.print(f"[dim]{i18n.t('audit.run_init_first')}.[/dim]\n")
             return
         
@@ -57,7 +57,7 @@ class AuditCommand:
         engine.register_checker(ConsistencyChecker)
         
         # Executa auditoria
-        self.console.print(f"\n[bold cyan]🔍 {i18n.t('audit.title')}:[/bold cyan] {path}\n")
+        self.console.print(f"\n[bold cyan]{i18n.t('audit.title')}:[/bold cyan] {path}\n")
         
         result = engine.audit(
             path=path,
