@@ -1,7 +1,7 @@
-# 🦑 Squidy v2.0
+# 🦑 Squidy v2.0.1
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-2.0.1-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/code%20style-black-black.svg" alt="Code style: black">
@@ -311,14 +311,33 @@ pre-commit run --all-files
 
 ---
 
+## 🔗 Links
+
+<p align="center">
+  <a href="https://squidy.run">🌐 Site</a> •
+  <a href="https://pypi.org/project/squidy/">📦 PyPI</a> •
+  <a href="https://github.com/seomarc/squidyrun">💻 GitHub</a> •
+  <a href="https://www.youtube.com/@seomarcos">▶️ YouTube</a> •
+  <a href="https://www.linkedin.com/in/seomarc/">💼 LinkedIn</a> •
+  <a href="https://buymeacoffee.com/seomarcos">☕ Buy Me a Coffee</a>
+</p>
+
+### 👤 Desenvolvedor
+
+- **Marcos Tadeu** - [Site Pessoal](https://www.marcostadeu.com.br/)
+- **SearchOps** - [searchops.io](https://searchops.io/)
+
+---
+
 ## 💖 Apoie o Projeto
 
 Se o Squidy te ajudou, considere:
 
-- ⭐ Dar uma estrela no GitHub
+- ⭐ Dar uma estrela no [GitHub](https://github.com/seomarc/squidyrun)
 - 🐦 Compartilhar no Twitter
 - 💼 Usar na sua empresa
 - 🤝 Contribuir com código
+- ☕ [Buy Me a Coffee](https://buymeacoffee.com/seomarcos)
 
 ---
 
@@ -329,10 +348,16 @@ MIT License - veja [LICENSE](LICENSE) para detalhes.
 ---
 
 <p align="center">
-  Feito com 🦑 por <a href="https://github.com/seomarc">Marcos Tadeu</a>
+  Feito com 🦑 por <a href="https://github.com/seomarc">Marcos Tadeu</a> • <a href="https://github.com/seomarc/squidyrun">💻 GitHub do Projeto</a>
 </p>
 
 <p align="center">
-  <a href="https://squidy.run">squidy.run</a> •
-  <a href="mailto:contato@squidy.run">contato@squidy.run</a>
+  <a href="https://squidy.run">🌐 squidy.run</a> •
+  <a href="https://pypi.org/project/squidy/">📦 PyPI</a> •
+  <a href="https://github.com/seomarc/squidyrun">💻 GitHub</a> •
+  <a href="https://www.youtube.com/@seomarcos">▶️ YouTube</a> •
+  <a href="https://www.linkedin.com/in/seomarc/">💼 LinkedIn</a> •
+  <a href="https://www.marcostadeu.com.br/">👤 Desenvolvedor</a> •
+  <a href="https://searchops.io/">🏢 SearchOps</a> •
+  <a href="mailto:contato@squidy.run">✉️ Contato</a>
 </p>
