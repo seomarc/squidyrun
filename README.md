@@ -143,14 +143,33 @@ squidy init --lang en-US
 
 ### 🌍 Idiomas Suportados
 
-O Squidy suporta múltiplos idiomas:
+O Squidy v2.1+ suporta múltiplos idiomas! Toda a documentação e interface são geradas no idioma selecionado:
 
 | Idioma | Código | Status |
 |--------|--------|--------|
 | 🇧🇷 Português (Brasil) | `pt-BR` | ✅ Completo |
 | 🇺🇸 English (US) | `en-US` | ✅ Completo |
 
-O idioma pode ser selecionado via flag `--lang` ou de forma interativa durante o setup.
+**Como usar:**
+```bash
+# Selecionar idioma via flag
+squidy init --lang en-US
+
+# Ou deixe o Squidy detectar automaticamente
+squidy init
+
+# 🌍 Selecione o idioma / Select language:
+# [1] 🇧🇷 Português (Brasil)
+# [2] 🇺🇸 English (US)
+```
+
+📖 **[Guia Completo de Internacionalização](docs/I18N.md)**
+
+**O que é traduzido:**
+- ✅ Interface CLI completa
+- ✅ Todos os 10 templates de documentação
+- ✅ Prompts de entrevista com IA
+- ✅ Mensagens de auditoria e status
 
 ### Auditoria de Projeto
 
@@ -228,6 +247,12 @@ meu-projeto/
 
 ## 🎨 Funcionalidades
 
+### ✨ v2.1 - Novidades
+
+- 🌍 **Multi-idioma** - Suporte completo a Português e Inglês (pt-BR, en-US)
+- 📋 **Templates Bilíngues** - Documentação gerada no idioma selecionado
+- 🤖 **IA Multi-idioma** - Entrevista e configuração em português ou inglês
+
 ### ✨ v2.0 - Novidades
 
 - 🎨 **UI/UX Premium** - Interface moderna com Rich, gradientes e animações
@@ -235,7 +260,7 @@ meu-projeto/
 - 📊 **Auditoria Completa** - Verifica estrutura, kanban, freshness e consistência
 - 🔌 **Arquitetura Limpa** - Ports & Adapters, extensível e testável
 - 📋 **Templates v2.0** - Documentação mais completa e acionável
-- 🧪 **Testes** - Suite com pytest, 7/7 passando
+- 🧪 **Testes** - Suite com pytest, 10/10 passando
 
 ### 🤖 Provedores de IA Suportados
 
@@ -269,9 +294,11 @@ O Squidy pode auditar projetos existentes:
 ## 📚 Documentação
 
 - 📖 [Documentação Completa](https://docs.squidy.run)
+- 🌍 **[Guia de Internacionalização](docs/I18N.md)** - Multi-idioma (pt-BR, en-US)
 - 🚀 [Guia de Início Rápido](https://docs.squidy.run/quickstart)
 - 🏗️ [Arquitetura](https://docs.squidy.run/architecture)
 - 🤝 [Contribuindo](CONTRIBUTING.md)
+- 🌐 [Contribuindo com Traduções](CONTRIBUTING-I18N.md)
 
 ---
 
@@ -306,11 +333,19 @@ pre-commit run --all-files
 
 ## 📈 Roadmap
 
-### v2.1 (Próximo)
+### v2.1 ✅ Lançado!
+- [x] 🌍 **Suporte Multi-idioma** - Português e Inglês
 - [ ] Templates para mais stacks (Vue, Svelte, Go, Rust)
 - [ ] Integração com GitHub/GitLab
 - [ ] Sync com Notion/Confluence
+
+### v2.2 (Próximo)
 - [ ] Dashboard web (Squidy Cloud)
+- [ ] Mais idiomas (Espanhol, Francês, Alemão)
+- [ ] Plugins oficiais (Git, Jira, Slack)
+- [ ] API REST
+- [ ] CLI autocompletion
+- [ ] Temas customizáveis
 
 ### v2.2
 - [ ] Plugins oficiais (Git, Jira, Slack)
