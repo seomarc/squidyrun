@@ -34,7 +34,7 @@ app = typer.Typer(
 )
 
 # Versão
-SQUIDY_VERSION = "2.1.6"
+SQUIDY_VERSION = "2.1.7"
 
 
 def show_banner():

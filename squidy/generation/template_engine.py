@@ -98,9 +98,10 @@ class TemplateEngine:
         
         return template.render(**context)
     
-    def list_templates(self) -> list[str]:
-        """Lista templates disponíveis"""
-        return list(self.loader.templates.keys())
+    def list_templates(self, language: str = "pt-BR") -> list[str]:
+        """Lista templates disponíveis para um idioma"""
+        lang = language if language in self._loaders else self.DEFAULT_LANGUAGE
+        return list(self._loaders[lang].templates.keys())
     
     def _kebab_case(self, value: str) -> str:
         """Converte para kebab-case"""

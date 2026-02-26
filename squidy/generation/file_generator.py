@@ -6,6 +6,7 @@ Gera todos os arquivos de documentação do Squidy.
 
 import json
 from datetime import datetime
+from importlib.metadata import version as pkg_version
 from pathlib import Path
 from typing import Any
 
@@ -18,6 +19,14 @@ from squidy.core.ports.filesystem import FileSystemPort
 from squidy.generation.template_engine import TemplateEngine
 
 console = Console()
+
+
+def _get_squidy_version() -> str:
+    """Retorna versão instalada do pacote squidy"""
+    try:
+        return pkg_version("squidy")
+    except Exception:
+        return "unknown"
 
 
 class FileGenerator:
@@ -88,7 +97,7 @@ class FileGenerator:
                 console=console,
             ) as progress_bar:
                 task = progress_bar.add_task(
-                    "[bright_cyan]🦑 Gerando arquivos Squidy...",
+                    f"[bright_cyan]{i18n.t('progress.generating_files')}",
                     total=len(self.FILES) + 2,  # +1 para diário, +1 para manifest
                 )
                 
@@ -235,7 +244,7 @@ class FileGenerator:
             "language": i18n.get_language(),
             "created_at": datetime.now().isoformat(),
             "updated_at": datetime.now().isoformat(),
-            "squidy_version": "2.1.0",
+            "squidy_version": _get_squidy_version(),
             "agent_type": config.agent_type,
             "stack": {
                 "frontend": config.stack.frontend if config.stack else None,
