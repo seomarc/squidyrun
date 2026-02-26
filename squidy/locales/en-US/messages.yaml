@@ -89,7 +89,7 @@ init:
   interview_you: "You"
   interview_thinking: "Thinking..."
   interview_agent: "🤖 Agent"
-  interview_context_ready: "✓ Sufficient context collected ({count} question(s))"
+  interview_context_ready: "✓ Sufficient context collected"
   interview_generating: "Generating configuration..."
   interview_processing: "Processing with AI..."
   

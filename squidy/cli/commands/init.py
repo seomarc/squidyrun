@@ -303,7 +303,7 @@ class InitCommand:
             
             # Verifica se deve parar
             if question == "READY":
-                self.console.print(f"[green]{i18n.t('init.interview_context_ready', count=i)}[/green]\n")
+                self.console.print(f"[green]{i18n.t('init.interview_context_ready')}[/green]\n")
                 break
             
             # Mostra pergunta
