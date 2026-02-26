@@ -148,8 +148,41 @@ class ProjectConfig(BaseModel):
     
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "ProjectConfig":
-        """Cria instância a partir de dicionário"""
-        return cls(**data)
+        """Cria instância a partir de dicionário (aceita chaves em inglês ou português)"""
+        # Mapeia chaves em inglês para português (geradas pelo prompt en-US)
+        top_level_map = {
+            "purpose": "proposito",
+            "business_context": "contexto_negocio",
+            "architecture": "arquitetura",
+            "quality": "qualidade",
+            "principles": "principios",
+            "prohibitions": "proibicoes",
+            "restrictions": "restricoes",
+            "conventions": "convencoes",
+        }
+        normalized = {top_level_map.get(k, k): v for k, v in data.items()}
+
+        # Normaliza stack: database → banco
+        if "stack" in normalized and isinstance(normalized["stack"], dict):
+            stack = dict(normalized["stack"])
+            if "database" in stack and "banco" not in stack:
+                stack["banco"] = stack.pop("database")
+            normalized["stack"] = stack
+
+        # Normaliza convencoes: chaves em inglês → português
+        if "convencoes" in normalized and isinstance(normalized["convencoes"], dict):
+            conv_map = {
+                "variables": "variaveis",
+                "functions": "funcoes",
+                "constants": "constantes",
+                "files": "arquivos",
+                "database": "banco",
+            }
+            normalized["convencoes"] = {
+                conv_map.get(k, k): v for k, v in normalized["convencoes"].items()
+            }
+
+        return cls(**normalized)
     
     def __str__(self) -> str:
         return f"ProjectConfig({self.project_name})"
